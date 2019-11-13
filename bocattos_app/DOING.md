@@ -1,17 +1,19 @@
-# ID001 Creación del proyecto
+# ID002 Cambio de imagen de fondo
 
-Creación de la aplicación y archivos `README.md`, `CHANGELOG.md`.
+Cambia el fondo de la aplicación colocando una imagen.
+Hasta la versión anterior el fondo de la aplicación era sólo un
+color azul. 
 
 # Modificado
-## lib/main.dart
-Se importa el paquete `app.dart` y en el main sólo deja la creación
-de una instancia de `BocattosApp`.
+## pubspec.yaml
+- En la sección `flutter` crea un apartado `assets` donde establece
+  el path a la imagen que queremos poner de fondo.
 
-# Creado
-## lib/app.dart
-- Se importa el paquete `login.dart`.
-- Se crea la clase `BocattosApp`. En el constructor de esta clase
-  se establecen las rutas básicas de la aplicación.
 
 ## lib/ui/screen/login.dart
-- Se crea la clase `LoginScreen`. La pantalla inicial en esta versión sólo presenta el nombre de la aplicación y un botón para registrarse con Google. Al hacer click en dicho botón sólo se mostrará un mensaje de "Botón presionado en la consola.".
+- Crea el widget `_builBackground()` de tipo `BoxDecoration` el 
+  cual contendrá la imagen de fondo.
+
+- En el `Scafold` en la propiedad `body` coloca un `Container`
+  en cuya propiedad `decoration` relaciona el widget
+  `buildBackground()` creado anteriormente.
