@@ -1,0 +1,41 @@
+= Bocattos
+José Luis Barros
+v. 0.3.0, 2019-NOV-13
+
+== Wiki - Notas técnicas de la aplicación
+
+=== Usando temas
+Como puede verse al ejecutar nuestra aplicación en el estado actual, el texto "Bocattos" en la pantalla de inicio de sesión no parece elegante. Queremos que se vea elegante, pero no demasiado elegante. Vamos a cambiar el estilo del texto.
+
+Hay dos opciones para lograr esto:
+
+==== Opción 1
+Modificando las propiedades del texto agregando a `Text` la propiedad `style` y aplicando un `TextStyle`. Allí se puede configurar el `fontFamily`, `fontSize` y `color` del texto
+
+.text_style.dart
+[source, dart]
+----
+Text(
+  'Recipes',
+  style: TextStyle(
+    fontFamily: 'Merriweather',
+    fontSize: 40.0,
+    color: const Color(0xFF807A6B),
+  ),
+  textAlign: TextAlign.center,
+)
+----
+
+==== Opción 2
+Usar un tema en Flutter significa definir un widget `ThemeData` para compartir estilos con todos los demás widgets. La mayor ventaja de usar un tema es su reutilización. Creamos un estilo solo una vez. Si deseamos cambiarlo, lo cambiamos sólo una vez, en un único lugar.
+
+Con el fin de crear un proyecto bien estructurado, implementemos nuestro tema, donde todos deberían encontrarlo, en la ruta `lib/ui/`. Le pondremos el nombre `theme.dart`.
+
+==== Qué opción usaremos?
+Usaremos la opción 2 ya que nos permite reutilizar el tema en toda nuestra aplicación.
+
+Hasta ahora solo hemos definido un tema. Todavía no podemos usarlo en nuestros widgets. Para compartir el tema en todos los widgets de nuestra aplicación, tenemos que aplicar el tema al widget `MaterialApp` que es retornado en el método `build()` de la clase `BocattosApp` en `app.dart`.
+
+Ahora, podemos acceder a los estilos definidos en el método `buildTheme` en todos los widgets. Para ver su efecto, modificaremos el método `_buildText()` que se encuentra en el archivo `login.dart` y le aplicaremos el estilo headline a dicho texto. Esto cambiará el tipo de letra del título de la aplicación.
+
+Queremos usar la fuente `Merriweather` dentro de nuestro widget `ThemeData`. En esta etapa, esta fuente aún no está incluida en nuestro proyecto. Puede descargarlo de https://fonts.google.com/specimen/Merriweather[Google Fonts]. Tan pronto como lo tengas, crea el directorio `fonts` en la raíz del proyecto y coloca el archivo de fuentes `Merriweather-Regular.ttf` dentro de él para agregar la fuente a nuestro proyecto. Luego, edita el archivo `pubspec.yaml` para relacionar este recurso.

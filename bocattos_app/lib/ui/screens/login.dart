@@ -14,6 +14,7 @@ class LoginScreen extends StatelessWidget {
     Text _buildText() {
       return Text(
         'Bocattos',
+        style: Theme.of(context).textTheme.headline,
         textAlign: TextAlign.center,
       );
     }
@@ -29,8 +30,8 @@ class LoginScreen extends StatelessWidget {
               // Espacio entre recetas y el botón:
               SizedBox(height: 50.0),
               MaterialButton(
-                color: Colors.white,
-                child: Text("Regístrate con Google"),
+                color: Colors.lightBlue[200],
+                child: Text("Regístrate con Gogle"),
                 onPressed: () => print("Botón presionado."),
               ),
             ],

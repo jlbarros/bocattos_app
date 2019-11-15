@@ -1,5 +1,11 @@
 # Change Log
 
+## [0.3.0] :: 15-NOV-2019 13:30
+
+### Creación de un tema para la aplicación
+#### Pantalla inicial
+* Se crea un tema para la aplicación. Esto se ve reflejado en el estilo de texto que muestra el título de la aplicación
+
 ## [0.2.0] :: 12-NOV-2019 18:33
 
 ### Cambio del fondo de la aplicación

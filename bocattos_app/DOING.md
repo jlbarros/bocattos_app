@@ -1,19 +1,26 @@
-# ID002 Cambio de imagen de fondo
+# ID003 Crea un tema para la aplicación
 
-Cambia el fondo de la aplicación colocando una imagen.
-Hasta la versión anterior el fondo de la aplicación era sólo un
-color azul. 
+El texto que presenta la aplicación no luce elegante.
+Este commit crea un tema para aplicarlo a la aplicación.
+
+# Nuevo
+## lib/ui/theme.dart
+- En este archivo se crea el tema que usaremos en la aplicación.
+  Define un tipo de letra que es retornado como tema.
+
+## fonts/Merriweather-Regular.ttf
+- Fuente a utilizar en el tema creado en `theme.dart`.
 
 # Modificado
+## app.dart
+- Importa el package `theme.dart` y en el constructor de la clase
+  se aplica el tema `buildTheme()` en la propiedad `theme`. 
+  De esta manera, los estilos que creemos en el tema estarán
+  disponibles para toda la aplicación.
+
+## login.dart
+- Modifica `_buildText()` para aplicar el estilo `headline` del
+  tema antes creado al texto del título de la aplicación.
+
 ## pubspec.yaml
-- En la sección `flutter` crea un apartado `assets` donde establece
-  el path a la imagen que queremos poner de fondo.
-
-
-## lib/ui/screen/login.dart
-- Crea el widget `_builBackground()` de tipo `BoxDecoration` el 
-  cual contendrá la imagen de fondo.
-
-- En el `Scafold` en la propiedad `body` coloca un `Container`
-  en cuya propiedad `decoration` relaciona el widget
-  `buildBackground()` creado anteriormente.
+- Declara el recurso de la nueva fuente `Merriweather`.
