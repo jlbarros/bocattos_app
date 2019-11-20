@@ -1,0 +1,14 @@
+= Bocattos
+José Luis Barros
+v. 0.4.0, 2019-NOV-15
+
+== Wiki - Notas técnicas de la aplicación
+
+=== Botón de Inicio de Sesión con Google
+Vamos a implementar el siguiente widget personalizado. Implementaremos el botón de Inicio de Sesión con Google teniendo en cuenta las link:https://developers.google.com/identity/branding-guidelines[Directrices de marca de inicio de sesión realizadas por Google].
+
+Antes de incluir el widget personalizado en el proyecto, debemos agregar la fuente `Roboto (Roboto-Medium.ttf)` y el logotipo "G" de Google a nuestro proyecto. No olvides actualizar el archivo `pubspec.yaml`.
+
+Una vez definidos los recursos, creamos el `widgets` (donde vamos a encontrar todos los widgets personalizados) en el directorio `ui` y creamos allí el archivo `google_button.dart` que contendrá toda la lógica de UI del botón de Google.
+
+Una vez creada la clase `GoogleSignInButton` en el archivo `google_button.dart` podemos usarla para reemplazar el botón de Google creado anteriormente en `login.dart`.

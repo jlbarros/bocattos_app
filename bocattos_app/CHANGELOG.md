@@ -1,5 +1,11 @@
 # Change Log
 
+## [0.4.0] :: 19-NOV-2019 20:24
+
+### Botón de Inicio de Sesión con Google
+#### Pantalla inicial
+* Presenta el botón de inicio de Sesión con Google de acuerdo a las especificaciones de marca que dicta Google. Aún no es funcional, sólo muestra en la consola un mensaje de "Botón presionado" al hacer clic son el.
+
 ## [0.3.0] :: 15-NOV-2019 13:30
 
 ### Creación de un tema para la aplicación

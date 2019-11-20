@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:bocattos_app/ui/widgets/google_button.dart';
 
 class LoginScreen extends StatelessWidget {
   @override
@@ -29,10 +30,8 @@ class LoginScreen extends StatelessWidget {
               _buildText(),
               // Espacio entre recetas y el botón:
               SizedBox(height: 50.0),
-              MaterialButton(
-                color: Colors.lightBlue[200],
-                child: Text("Regístrate con Gogle"),
-                onPressed: () => print("Botón presionado."),
+              GoogleSignInButton(
+                onPressed: () => print("Botón presionado"),
               ),
             ],
           ),
