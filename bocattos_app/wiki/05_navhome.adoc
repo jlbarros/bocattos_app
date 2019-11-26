@@ -1,0 +1,42 @@
+= Bocattos
+José Luis Barros
+v. 0.5.0, 2019-NOV-25
+
+== Wiki - Notas técnicas de la aplicación
+
+=== Navegación a Home Screen
+Navegar entre pantallas en Flutter es bastante simple. ¿Puedes recordar cómo definimos rutas en la primera parte de este artículo?
+Vamos a utilizar estas rutas para navegar entre la pantalla de inicio de sesión y la pantalla de inicio.
+
+Cuando echamos un vistazo al código en `app.dart`, está claro que en nuestra aplicación `Bocattos` existen dos rutas:
+
+    * `’/ ’`: La ruta base, que hace referencia al widget `LoginScreen`.
+    * `’/ Login’`: la segunda ruta, que también hace referencia a `LoginScreen`.
+
+Cambiemos la primera ruta para que apunte al widget de la pantalla de inicio (aún no existe, no te preocupes, la implementaremos en un momento.
+
+Dado que en este artículo nos preocupa principalmente la implementación de la interfaz de usuario, queremos llevar al usuario a la pantalla de inicio después de tocar el widget `GoogleSignInButton`. Para hacerlo, necesitamos cambiar la función pasada al constructor de `GoogleSignInButton` dentro de `login.dart` a una función que utiliza la ruta base y navega a una nueva pantalla.
+
+Para este propósito, usamos el widget `Navigator`. Gestiona rutas para navegar a los widgets a los que apuntan las rutas y nos ofrece muchos métodos útiles, como `pushReplacementNamed`, que se utiliza en el siguiente ejemplo para trabajar con ellos. Así es como usamos el widget `Navigator` con una ruta definida en el paso anterior.
+
+Eso es todo lo que necesitamos para navegar desde la pantalla de inicio de sesión a la pantalla de inicio.
+
+En nuestro caso, nuestra intención es no tener la posibilidad de volver a la pantalla de inicio de sesión después de que se haya completado la navegación.
+
+En otros casos, use el método `pushNamed`, que no reemplaza la pantalla actual y brinda al usuario la posibilidad de cambiar a la página anterior. Alternativamente, puede echar un vistazo al tutorial **Navegar a una nueva pantalla** y viceversa, que muestra cómo navegar entre widgets sin definir rutas.
+
+Nuestra barra de aplicaciones queda definitivamente demasiado alta. Para cambiar esto,envolvamos el widget `AppBar` ya existente en un widget `PreferredSize`. De esta manera, podemos establecer una nueva altura de la barra de aplicaciones.
+
+=== Conclusión
+
+Permítanme resumir lo que hemos aprendido hoy:
+
+* Cómo escribir y usar widgets personalizados, que heredan de `StatelessWidget` y no cambian durante el tiempo de ejecución.
+
+* Cómo construir diseños dentro de widgets personalizados usando widgets de Flutter como `Center`, `Column`, `Row`, `SizedBox` y `Container`.
+
+* Cómo usar el widget `ThemeData` para compartir estilos en Flutter.
+
+* Cómo navegar entre widgets usando el widget `Navigator`.
+
+* Todo es un widget.

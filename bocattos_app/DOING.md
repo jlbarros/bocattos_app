@@ -1,16 +1,20 @@
-# ID004 Botón de Inicio de Sesión con Google
+# ID005 Navega a HomeScreen y Tab de aplicación
 
-La aplicación va a usar un botón de inicio de sesión usando Google.
-Para ello se deben seguir las reglas de marca de Google.
+Haciendo clic en el botón de inicio de sesión la aplicación navega a
+`HomeScreen`, donde se le presenta al usuario un tab de navegación
+con las opciones de recetas de la aplicación: Comidas, Bebidas, 
+Favoritos y Ajustes.
+
+Por el momento sólo son las pantallas sin funcionalidad.
 
 # Nuevo
-## lib/ui/widgets/google_button.dart
-- Contiene la clase `GoogleSignInButton` la cual crea el botón
-  de Google.
+## lib/ui/screens/home.dart
+- Contiene el widget `HomeScreen` el cual es el encargado de
+  presentar el tab de opciones de la aplicación.
 
-## fonts/Roboto_Medium.ttf
-- Fuente a utilizar en el botón de Google.
+# Modificado
+## lib/app.dart
+- Modifica la ruta `'\'` para que ahora apunte a `HomeScreen`.
 
-## pubspec.yaml
-- Declara el recurso de la nueva fuente `Roboto-Medium.ttf`.
-- Declara la imagen del logo de Google: `g-logo.png`.
+## lib/ui/screens/login.dart
+- El widget `GoogleSignInButton` ahora navega a `'\'`.

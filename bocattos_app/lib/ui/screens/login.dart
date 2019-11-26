@@ -31,7 +31,7 @@ class LoginScreen extends StatelessWidget {
               // Espacio entre recetas y el botón:
               SizedBox(height: 50.0),
               GoogleSignInButton(
-                onPressed: () => print("Botón presionado"),
+                onPressed: () => Navigator.of(context).pushReplacementNamed('/'),
               ),
             ],
           ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:bocattos_app/ui/screens/login.dart';
 import 'package:bocattos_app/ui/theme.dart';
+import 'package:bocattos_app/ui/screens/home.dart';
 
 class BocattosApp extends StatelessWidget {
   @override
@@ -11,7 +12,7 @@ class BocattosApp extends StatelessWidget {
       theme: buildTheme(),
       initialRoute: '/login',
       routes: {
-        '/': (context) => LoginScreen(),
+        '/': (context) => HomeScreen(),
         '/login': (context) => LoginScreen(),
       },
     );
