@@ -1,20 +1,23 @@
-# ID005 Navega a HomeScreen y Tab de aplicación
+# ID006 Modelo de datos y ListView
 
-Haciendo clic en el botón de inicio de sesión la aplicación navega a
-`HomeScreen`, donde se le presenta al usuario un tab de navegación
-con las opciones de recetas de la aplicación: Comidas, Bebidas, 
-Favoritos y Ajustes.
+Al navegar a `HomeScreen` se presenta al usuario una lista de recetas
+distribuidas en tres `ListViews`: Comidas, Bebidas y Favoritos.
 
-Por el momento sólo son las pantallas sin funcionalidad.
+Las recetas presentadas son datos estáticos de prueba.
 
 # Nuevo
-## lib/ui/screens/home.dart
-- Contiene el widget `HomeScreen` el cual es el encargado de
-  presentar el tab de opciones de la aplicación.
+## lib/model/recipe.dart
+- Crea la clase `Recipe`.
+
+## lib/utils/store.dart
+- Contiene instancias de la clase `Recipe`.
 
 # Modificado
-## lib/app.dart
-- Modifica la ruta `'\'` para que ahora apunte a `HomeScreen`.
+## lib/ui/screens/home.dart
+- `HomeScreen` pasa ahora a ser una clase con estado que contiene
+   dos listas, una de recetas y otra de recetas favoritas.
 
-## lib/ui/screens/login.dart
-- El widget `GoogleSignInButton` ahora navega a `'\'`.
+- Crea un `ListView` en cada `Tab`de la aplicación.
+
+- En los `ListView` se presenta una lista de recetas de acuerdo
+  al tipo de receta que debe mostrar cada tab.

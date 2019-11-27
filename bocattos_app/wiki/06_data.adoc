@@ -1,0 +1,44 @@
+= Bocattos
+José Luis Barros
+v. 0.6.0, 2019-NOV-27
+
+== Wiki - Notas técnicas de la aplicación
+
+=== Modelo de datos
+En el primer paso, crearemos un modelo de datos para recetas como una clase Dart. Llamémosla `Recipe` e implementemos los campos `id`, `type`, `name`, `duration`, `ingredients`, `preparation` e `imageURL`, que vamos a utilizar para almacenar datos de muchas recetas sabrosas.
+
+Como siempre, para tener una estructura clara del proyecto, crearemos un directorio `model` en el directorio `lib`. Allí, vamos a colocar todo lo referente al modelo de datos dentro de nuestro proyecto.
+
+Utilizamos la enumeración `RecipeType` para evitar errores en la inicialización de los objetos `Recipe`. Además, aclaramos de esta manera qué tipo de datos espera el tipo de parámetro en el constructor de la clase `Recipe`.
+
+=== Proporcionando datos
+Antes de que tengamos acceso a la vista de lista de recetas, necesitamos datos de recetas. Para almacenar y obtener datos, utilizaremos **Google Firestore** más adelante. Dado que nos estamos centrando en la interfaz de usuario en esta etapa del proyecto, proporcionamos algunos datos ficticios para continuar con la implementación.
+
+Crearemos un directorio `utils` en el directorio `lib` y colocaremos el código  de nuestra "base de datos" en un nuevo archivo llamado `store.dart`. Siéntase libre de ajustar los datos a sus propias recetas.
+
+Ahora, estamos listos para comenzar con la implementación del `ListView` de recetas.
+
+=== ListView
+Para proporcionar una lista desplazable que contenga varios widgets personalizados, utilizaremos la clase `ListView`. Pero antes de eso, vamos a transformar nuestro `HomeScreen` de widget sin estado ya existente a widget con estado y utilizaremos las clases Flutter `StatefulWidget` y `State`.
+
+Debido a que los datos con los que trabajamos pueden cambiar durante la vida útil del widget de `HomeScreen`, `StatelessWidget` ya no es la opción correcta.
+
+Echemos un vistazo más de cerca a los widgets con estado.
+
+=== Widgets Stateful
+Cuando sabemos que el widget que estamos implementando es dinámico, se requiere implementar un widget Stateful en lugar de un widget Statless. Como sugiere el nombre del widget Stateful, los widgets con estado tienen un estado. El estado puede cambiar durante el ciclo de vida del widget. Dichos cambios pueden ser realizados por el usuario, que interactúa con elementos de la interfaz de usuario. Tan pronto como el estado cambia, el widget se vuelve a dibujar.
+
+La implementación consta de dos subclases:
+* Subclase `StatefulWidget`: contiene una definición del widget
+* Subclase `State`: construye el widget e incluye su estado.
+
+==== Implementación
+Vamos a implementar el siguiente patrón.
+
+Nuestro widget `HomeScreen` será el widget principal que administra el estado: la lista de recetas y la lista de favoritos. Será nuestro widget activo. Si el estado cambia, el widget activo le dice a sus widgets inactivos que se actualicen.
+
+La clase `HomeScreen` administrará el estado en el que se basan los widgets de `RecipeCard`. Además, los actualizará la lista de favoritos cuando el usuario modifique dicha lista al interactuar con la interfaz de usuario del widget `RecipeCard`. Al tocar el botón de favoritos, se actualizará la lista de favoritos mediante el método `_handleFavoritesListChanged`.
+
+Como puedes ver, usamos `ListView.builder` en el método privado `_buildRecipes`. El constructor de constructores de la clase `ListView` funciona bastante similar a un bucle `for`. Espera un parámetro itemsCount para saber cuántas veces el constructor debe agregar un widget al `ListView`.
+
+El objeto `ListView` está envuelto por un objeto `Expanded` para usar todo el espacio disponible en la columna.
