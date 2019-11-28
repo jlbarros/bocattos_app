@@ -28,10 +28,13 @@ class HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    Column _buildRecipes(List<Recipe> recipeList) {
-      return Column(
-        children: <Widget>[
-          Expanded(
+    Padding _buildRecipes(List<Recipe> recipeList) {
+      return Padding(
+        // Padding antes y después del ListView
+        padding: const EdgeInsets.symmetric(vertical: 5.0),
+        child: Column(
+          children: <Widget>[
+            Expanded(
             child: ListView.builder(
               itemCount: recipeList.length,
               itemBuilder: (BuildContext context, int index) {
@@ -42,8 +45,9 @@ class HomeScreenState extends State<HomeScreen> {
                 );
               },
             ),
-          ),
-        ],
+            ),
+          ],
+        ),
       );
     }
 

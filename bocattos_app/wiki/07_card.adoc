@@ -20,3 +20,22 @@ Todos los widgets incluidos en el método `build` están envueltos en un objeto 
 Finalmente, reemplace `ListTile` con `RecipeCard` en el método `_buildRecipes` en `HomeScreenState`.
 
 ¡Excelente! Se ve mucho mejor ahora.
+
+Todavía hay dos cosas que debemos solucionar:
+
+* El relleno vertical al principio y al final de la vista de lista es demasiado pequeño.
+
+* El formato de la cadena de duración de las recetas que se muestra en los widgets de `RecipeCard` no es bonita.
+
+Primero arreglemos el relleno (padding).
+
+El padding implementado (relación de píxeles del dispositivo) en `RecipeCard` es 10.0  en el desplazamiento horizontal y 5.0 en el desplazamiento vertical. El resultado es que falta un relleno de 5.0 antes y después del widget `ListView` creado en `_buildRecipes` en la clase `HomeScreen`. Agreguemos el relleno que falta.
+
+Ahora, embellezcamos la cadena de duración de las recetas.
+Para hacerlo, sigue los pasos a continuación:
+
+. Agrega el paquete `duration` en la sección de dependencias del archivo `pubspec.yaml` para poder usar el paquete como una librería en nuestro proyecto.
+
+. Agrega un nuevo método getter `getDurationString` que use el método `prettyDuration` de la librería `duration` en la clase `Recipe` del archivo `recipe.dart`.
+
+. Use `getDurationString` en el método `_buildTitleSection` en `RecipeCard`.
