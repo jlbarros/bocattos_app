@@ -1,23 +1,18 @@
-# ID006 Modelo de datos y ListView
+# ID007 Crea el widget RecipeCard 
 
-Al navegar a `HomeScreen` se presenta al usuario una lista de recetas
-distribuidas en tres `ListViews`: Comidas, Bebidas y Favoritos.
+El widget `RecipeCard` será el encargado de presentar una vista
+preliminar de cada receta. Muestra una imagen de la receta, su
+nombre, duración y el ícono de favorito.
 
-Las recetas presentadas son datos estáticos de prueba.
+El widget `ListView` hace una lista de `RecipeCard` para presentar
+una lista de vistas previas de las recetas existentes.
 
 # Nuevo
-## lib/model/recipe.dart
-- Crea la clase `Recipe`.
-
-## lib/utils/store.dart
-- Contiene instancias de la clase `Recipe`.
+## lib/ui/widgets/recipe_card.dart
+- Crea el widget `RecipeCard`.
 
 # Modificado
 ## lib/ui/screens/home.dart
-- `HomeScreen` pasa ahora a ser una clase con estado que contiene
-   dos listas, una de recetas y otra de recetas favoritas.
-
-- Crea un `ListView` en cada `Tab`de la aplicación.
-
-- En los `ListView` se presenta una lista de recetas de acuerdo
-  al tipo de receta que debe mostrar cada tab.
+- Reemplaza en el `ListView` el `ListTile` por un `RecipeCard`.
+  Es decir, en vez de presentar una simple lista de títulos
+  de recetas, presentamos las vistas previas de las recetas.

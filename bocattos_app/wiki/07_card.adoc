@@ -1,0 +1,22 @@
+= Bocattos
+José Luis Barros
+v. 0.7.0, 2019-NOV-27
+
+== Wiki - Notas técnicas de la aplicación
+
+=== Widget de tarjeta personalizada
+Nuestro widget de tarjeta personalizado contendrá la imagen e información básica de las recetas. Nuestro widget `ListView` contendrá varios de nuestros widgets de tarjetas personalizadas.
+
+Para evitar terminar en un caos de paréntesis, proporcionamos métodos privados `_buildTitleSection` y `_buildFavoriteButton`. Observe cómo proporcionamos un padding en los métodos `_buildTitleSection` y `build`. Usamos el widget `Padding`. La propiedad `padding` del widget `Padding` espera el objeto de la clase `EdgeInsets`, que es muy flexible de usar:
+
+* `EdgeInsets.all`: un constructor que inserta un padding en todos los lados de sus widgets secundarios (método `_buildTitleSection`).
+
+* `EdgeInsets.symmetric`: un constructor que inserta un relleno vertical y horizontal (método `build()`).
+
+Puede encontrar más información sobre `EdgeInsets` en la documentación oficial de Flutter.
+
+Todos los widgets incluidos en el método `build` están envueltos en un objeto `GestureDetector`. De esta forma, podemos detectar todo tipo de eventos en estos widgets. Por ahora, llamamos al método `print()` en el evento `onTap`.
+
+Finalmente, reemplace `ListTile` con `RecipeCard` en el método `_buildRecipes` en `HomeScreenState`.
+
+¡Excelente! Se ve mucho mejor ahora.

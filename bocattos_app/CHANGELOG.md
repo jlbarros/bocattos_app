@@ -1,5 +1,12 @@
 # Change Log
 
+## [0.7.0] :: 27-NOV-2019 21:42
+
+### Vista previa de recetas
+* Ahora la lista de recetas presenta una vista previa de las recetas, con foto y duración
+
+---
+
 ## [0.6.0] :: 27-NOV-2019 17:00
 
 ### Modelo de datos

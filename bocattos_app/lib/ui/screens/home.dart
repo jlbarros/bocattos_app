@@ -1,3 +1,4 @@
+import 'package:bocattos_app/ui/widgets/recipe_card.dart';
 import 'package:flutter/material.dart';
 import 'package:bocattos_app/model/recipe.dart';
 import 'package:bocattos_app/utils/store.dart';
@@ -34,8 +35,10 @@ class HomeScreenState extends State<HomeScreen> {
             child: ListView.builder(
               itemCount: recipeList.length,
               itemBuilder: (BuildContext context, int index) {
-                return ListTile(
-                  title: Text(recipeList[index].name),
+                return new RecipeCard(
+                  recipe: recipeList[index],
+                  inFavorites: userFavorites.contains(recipeList[index].id),
+                  onFavoriteButtonPressed: _handleFavoritesListChanged,
                 );
               },
             ),
