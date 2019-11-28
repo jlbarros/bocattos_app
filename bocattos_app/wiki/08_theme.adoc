@@ -1,0 +1,15 @@
+= Bocattos
+José Luis Barros
+v. 0.8.0, 2019-NOV-28
+
+== Wiki - Notas técnicas de la aplicación
+
+=== Tema de la aplicación
+
+Hemos escrito mucho código nuevo, pero no nos ha importado el tema de nuestra aplicación. Queremos que nuestra aplicación se vea elegante. Extendamos el tema y agreguemos más de un sabor único y elegante a nuestra aplicación agregando estilos y colores de texto.
+
+Luego de modificado el tema, debemos aplicarlo, actualizando el método `_buildFavoriteButton` en la clase `RecipeCard`.
+
+Luego, se adicionan los nuevos estilos al método `_buildTitleSection`.
+
+Por último, vamos a eliminar la asignación de `Colors.white` a la propiedad `backgroundColor` en la creación del objeto `AppBar` en `home.dart`. Esta asignación anula el color de las partes principales de nuestra aplicación, incluida la barra de aplicaciones, que hemos definido en la propiedad `primaryColor` en nuestro tema.

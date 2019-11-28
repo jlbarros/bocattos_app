@@ -1,5 +1,12 @@
 # Change Log
 
+## [0.8.0] :: 28-NOV-2019 14:36
+
+### Mejoramiento del tema de la aplicación
+* Cambio en los colores y tipo de letra de la aplicación.
+
+---
+
 ## [0.7.0] :: 27-NOV-2019 21:42
 
 ### Vista previa de recetas

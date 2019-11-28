@@ -22,7 +22,7 @@ class RecipeCard extends StatelessWidget {
           inFavorites == true ? Icons.favorite : Icons.favorite_border,
         ),
         elevation: 2.0,
-        fillColor: Colors.white,
+        fillColor: Theme.of(context).buttonColor,
         shape: CircleBorder(),
       );
     }
@@ -38,6 +38,7 @@ class RecipeCard extends StatelessWidget {
           children: <Widget>[
             Text(
               recipe.name,
+              style: Theme.of(context).textTheme.title,
             ),
             // Espacio vacío
             SizedBox(height: 10.0),
@@ -47,6 +48,7 @@ class RecipeCard extends StatelessWidget {
                 SizedBox(width: 5.0),
                 Text(
                   recipe.getDurationString,
+                  style: Theme.of(context).textTheme.caption,
                 ),
               ],
             ),
